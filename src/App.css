@@ -1,158 +1,99 @@
-/* .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-
-
-.bg-container {
-  background: url("../public/images/background.jpg") no-repeat center center/cover;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-
-.glass-card {
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(10px);
-  border-radius: 15px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  padding: 40px;
-  width: 400px;
-  box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
-  text-align: center;
-}
-
-.glass-card input {
-  width: 100%;
-  padding: 12px;
-  margin: 10px 0;
-  border: none;
-  border-radius: 5px;
-  background: rgba(255, 255, 255, 0.3);
-  outline: none;
-  color: black;
-}
-
-.glass-card button {
-  width: 100%;
-  padding: 12px;
-  border: none;
-  border-radius: 5px;
-  background-color: #007bff;
-  color: white;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-.glass-card button:hover {
-  background-color: #0056b3;
-} */
-
-
-
-
-
+/* =================== */
+/* Responsive Styles */
+/* =================== */
 
 /* Background Container */
 .bg-container {
-  min-height: 100vh;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  min-height: 100vh;
   padding: 20px;
+  background-size: cover; /* Ensures the image covers the entire background */
+  background-attachment: fixed;
 }
 
-/* Glassmorphism Form */
-.glass-card {
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(12px);
+/* Auth Container (Signup/Login Box) */
+.auth-container {
+  backdrop-filter: blur(10px);
+  background: rgba(214, 212, 212, 0.2);
   border-radius: 15px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
   padding: 40px;
-  width: 90%;
-  max-width: 500px;
-  box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 400px; /* Ensures a good width for forms */
   text-align: center;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
 }
 
-/* Input Fields */
-.glass-card input {
+.auth-container h2 {
+  font-size: 24px;
+  color: #070707;
+  margin-bottom: 20px;
+}
+
+/* =================== */
+/* Input Fields Styles */
+/* =================== */
+
+.input-field,
+.password-field {
+  width: 100%;
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.auth-container input {
   width: 100%;
   padding: 12px;
-  margin: 10px 0;
+  padding-right: 40px; /* Space for the eye icon */
   border: none;
-  border-radius: 5px;
-  background: rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
   outline: none;
+  background: rgba(167, 164, 164, 0.2);
+  color: rgb(10, 10, 10);
   font-size: 16px;
-  color: white;
-  transition: background 0.3s, color 0.3s;
+  transition: all 0.3s ease-in-out;
 }
 
-/* Change input background and text color on focus */
-.glass-card input:focus {
-  background: rgba(135, 206, 250, 0.4); /* Sky blue */
-  color: black;
+/* Placeholder Styling */
+.auth-container input::placeholder {
+  color: rgba(5, 5, 5, 0.6);
 }
 
-/* Placeholder Text */
-.glass-card input::placeholder {
-  color: white;
-  transition: color 0.3s;
+/* Highlight input on focus */
+.auth-container input:focus {
+  border: 2px solid #1265ff;
+  background: rgba(167, 164, 164, 0.3);
 }
 
-/* Change placeholder color when typing */
-.glass-card input:focus::placeholder {
-  color: skyblue;
+/* Error Styling */
+.input-error {
+  border: 2px solid red !important;
 }
 
-/* Password Field Container */
+/* ======================= */
+/* Password Field & Toggle */
+/* ======================= */
+
 .password-field {
   position: relative;
-  width: 100%;
+  width: 20rem;
+  display: flex;
+  align-items: center;
 }
 
-.password-field input {
-  width: 100%;
-  padding-right: 40px;
+.eye-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: rgb(8, 8, 8);
+  font-size: 18px;
 }
+
 
 .password-field span {
   position: absolute;
@@ -160,31 +101,98 @@
   top: 50%;
   transform: translateY(-50%);
   cursor: pointer;
-  color: white;
-}
-
-/* Button Styling */
-.glass-card button {
-  width: 100%;
-  padding: 12px;
-  border: none;
-  border-radius: 5px;
-  background-color: #007bff;
-  color: white;
+  color: rgb(10, 10, 10);
   font-size: 18px;
-  font-weight: 600;
+}
+
+/* Hide the default show password button in some browsers */
+input[type="password"]::-ms-reveal,
+input[type="password"]::-webkit-credentials-auto-fill-button {
+  display: none;
+}
+
+/* ================= */
+/* Error Messages */
+/* ================= */
+
+.error-message {
+  color: rgb(236, 7, 7);
+  font-size: 12px;
+  text-align: left;
+  margin-top: 5px;
+  padding-left: 5px;
+}
+
+/* ===================== */
+/* Button Styling */
+/* ===================== */
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 20px;
+}
+
+/* .auth-container button {
+  width: 100%;
+  max-width: 150px;
+  padding: 10px;
+  border: none;
+  border-radius: 30px;
+  background: #1265ff;
+  color: white;
   cursor: pointer;
-  transition: all 0.3s ease;
+  font-weight: bold;
+  font-size: 16px;
+  transition: all 0.3s ease-in-out;
 }
 
-.glass-card button:hover {
-  background-color: #0056b3;
+.auth-container button:hover {
+  background: #0f52d9;
+} */
+
+
+
+
+
+.auth-container button {
+  width: 100%;
+  max-width: 150px;
+  padding: 10px;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(135deg, #26b2f3, #f86775); /* Sky blue to pastel pink */
+  color: rgb(9, 9, 9);
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 16px;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
+/* Hover effect */
+.auth-container button:hover {
+  background: linear-gradient(135deg, #72B2D6, #EAB0C4); /* Slightly darker blend */
+}
+
+/* ====================== */
 /* Responsive Adjustments */
+/* ====================== */
+
 @media (max-width: 480px) {
-  .glass-card {
+  .auth-container {
     padding: 25px;
-    max-width: 90%;
+    
+  }
+
+  .auth-container button {
+    max-width: 100%;
   }
 }
+
+
+
+
+
